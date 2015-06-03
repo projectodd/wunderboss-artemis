@@ -21,11 +21,11 @@ a tetch more complicated.
 ### With Immutant
 
 First, you'll need to depend on a recent
-[incremental build](http://immutant.org/builds/2x/) (#583 or newer),
+[incremental build](http://immutant.org/builds/2x/) (#585 or newer),
 then make a few adjustments to your `:dependencies`:
 
 ```clojure
-:dependencies [[org.immutant/messaging "2.x.incremental.583"
+:dependencies [[org.immutant/messaging "2.x.incremental.585"
                 :exclusions [org.projectodd.wunderboss/wunderboss-messaging-hornetq]]
                [org.projectodd.wunderboss/wunderboss-artemis "0.1.0"]]
 ```
