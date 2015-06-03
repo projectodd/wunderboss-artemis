@@ -27,7 +27,7 @@ then make a few adjustments to your `:dependencies`:
 ```clojure
 :dependencies [[org.immutant/messaging "2.x.incremental.583"
                 :exclusions [org.projectodd.wunderboss/wunderboss-messaging-hornetq]]
-               [org.projectodd.wunderboss/wunderboss-artemis "0.1.0-SNAPSHOT"]]
+               [org.projectodd.wunderboss/wunderboss-artemis "0.1.0"]]
 ```
 
 Note that this will only currently work outside of WildFly, since
@@ -40,6 +40,14 @@ available.
 TBD - it will likely require a gem, since the
 `wunderboss-messaging-hornetq` is embedded within the
 `torquebox-messaging` gem.
+
+### Overriding the default configuration
+
+If you need to customize the configuration, you just need to provide a
+`broker.xml` on the classpath. You can use
+[our default one](https://github.com/projectodd/wunderboss-artemis/blob/master/src/main/resources/default-broker.xml)
+as a base, and refer to the
+[Artemis docs](http://activemq.apache.org/artemis/docs.html) for help.
 
 ## License
 
