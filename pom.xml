@@ -38,7 +38,7 @@
   </licenses>
 
   <properties>
-    <version.wunderboss>1.x.incremental.242</version.wunderboss>
+    <version.wunderboss>0.8.0</version.wunderboss>
     <version.artemis>1.0.0</version.artemis>
     <version.clojure>1.6.0</version.clojure>
   </properties>
