@@ -3,7 +3,7 @@
 
   <groupId>org.projectodd.wunderboss</groupId>
   <artifactId>wunderboss-artemis</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.0</version>
   <name>WunderBoss Artemis</name>
 
   <modelVersion>4.0.0</modelVersion>
