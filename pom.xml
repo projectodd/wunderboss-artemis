@@ -24,9 +24,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:projectodd/wunderboss-release.git</connection>
-    <developerConnection>scm:git:git@github.com:projectodd/wunderboss-release.git</developerConnection>
-    <url>https://github.com/projectodd/wunderboss/</url>
+    <connection>scm:git:git@github.com:projectodd/wunderboss-artemis.git</connection>
+    <developerConnection>scm:git:git@github.com:projectodd/wunderboss-artemis.git</developerConnection>
+    <url>https://github.com/projectodd/wunderboss-artemis/</url>
   </scm>
 
   <licenses>
