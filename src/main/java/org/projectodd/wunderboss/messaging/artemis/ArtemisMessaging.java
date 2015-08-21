@@ -27,10 +27,9 @@ import org.apache.activemq.artemis.jms.server.embedded.EmbeddedJMS;
 import org.apache.activemq.artemis.spi.core.naming.BindingRegistry;
 import org.projectodd.wunderboss.Options;
 import org.projectodd.wunderboss.WunderBoss;
-import org.projectodd.wunderboss.messaging.jms2.JMSDestination;
-import org.projectodd.wunderboss.messaging.jms2.JMSMessaging;
-import org.projectodd.wunderboss.messaging.jms2.JMSQueue;
-import org.projectodd.wunderboss.messaging.jms2.JMSTopic;
+import org.projectodd.wunderboss.messaging.jms.DestinationUtil;
+import org.projectodd.wunderboss.messaging.jms.JMSDestination;
+import org.projectodd.wunderboss.messaging.jms.JMSMessagingSkeleton;
 import org.slf4j.Logger;
 
 import javax.jms.ConnectionFactory;
@@ -39,7 +38,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class ArtemisMessaging extends JMSMessaging {
+public class ArtemisMessaging extends JMSMessagingSkeleton {
 
     public ArtemisMessaging(String name, Options<CreateOption> options) {
         this.name = name;
@@ -121,7 +120,7 @@ public class ArtemisMessaging extends JMSMessaging {
     protected javax.jms.Topic createTopic(String name) throws Exception {
         this.server
                 .getJMSServerManager()
-                .createTopic(false, name, JMSDestination.jndiName(name, "topic"));
+                .createTopic(false, name, DestinationUtil.jndiName(name, JMSDestination.Type.TOPIC));
 
         return lookupTopic(name);
     }
@@ -129,7 +128,8 @@ public class ArtemisMessaging extends JMSMessaging {
     protected javax.jms.Queue createQueue(String name, String selector, boolean durable) throws Exception {
         this.server
                 .getJMSServerManager()
-                .createQueue(false, name, selector, durable, JMSDestination.jndiName(name, "queue"));
+                .createQueue(false, name, selector, durable,
+                             DestinationUtil.jndiName(name, JMSDestination.Type.QUEUE));
 
         return lookupQueue(name);
     }
@@ -141,8 +141,8 @@ public class ArtemisMessaging extends JMSMessaging {
             jndiNames.addAll(Arrays.asList(this.server.getJMSServerManager().getBindingsOnTopic(name)));
         }
         jndiNames.add(name);
-        jndiNames.add(JMSTopic.jmsName(name));
-        jndiNames.add(JMSDestination.jndiName(name, "topic"));
+        jndiNames.add(DestinationUtil.jmsName(name, JMSDestination.Type.TOPIC));
+        jndiNames.add(DestinationUtil.jndiName(name, JMSDestination.Type.TOPIC));
 
         return (javax.jms.Topic)lookupJNDI(jndiNames);
     }
@@ -154,8 +154,8 @@ public class ArtemisMessaging extends JMSMessaging {
             jndiNames.addAll(Arrays.asList(this.server.getJMSServerManager().getBindingsOnQueue(name)));
         }
         jndiNames.add(name);
-        jndiNames.add(JMSQueue.jmsName(name));
-        jndiNames.add(JMSDestination.jndiName(name, "queue"));
+        jndiNames.add(DestinationUtil.jmsName(name, JMSDestination.Type.QUEUE));
+        jndiNames.add(DestinationUtil.jndiName(name, JMSDestination.Type.QUEUE));
 
         return (javax.jms.Queue)lookupJNDI(jndiNames);
     }
