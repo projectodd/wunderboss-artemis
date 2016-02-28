@@ -39,7 +39,7 @@
 
   <properties>
     <version.wunderboss>0.9.0</version.wunderboss>
-    <version.artemis>1.0.0</version.artemis>
+    <version.artemis>1.2.0</version.artemis>
     <version.clojure>1.6.0</version.clojure>
   </properties>
 
