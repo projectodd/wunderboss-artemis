@@ -42,7 +42,6 @@
                         (map #(vector (keyword (.name %)) %))
                         (into {}))]
     (fn [opts]
-      (println (str "opts: " opts " avail: " avail-options))
       (reduce (fn [m [k v]]
                 (assoc m
                   (if-let [enum (avail-options k)]
