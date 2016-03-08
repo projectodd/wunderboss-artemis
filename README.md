@@ -25,9 +25,9 @@ First, you'll need to depend on
 or newer, then make a few adjustments to your `:dependencies`:
 
 ```clojure
-:dependencies [[org.immutant/messaging "2.x.incremental.585"
+:dependencies [[org.immutant/messaging "2.1.3"
                 :exclusions [org.projectodd.wunderboss/wunderboss-messaging-hornetq]]
-               [org.projectodd.wunderboss/wunderboss-artemis "0.1.0"]]
+               [org.projectodd.wunderboss/wunderboss-artemis "0.2.0"]]
 ```
 
 Note that this will only currently work outside of WildFly, since
